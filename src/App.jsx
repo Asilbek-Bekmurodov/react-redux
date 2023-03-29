@@ -5,8 +5,10 @@ import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addCustomerAction,
+  getManyCustomersAction,
   removeCustomerAction,
 } from "./store/customerReducer";
+import { manyCustomers } from "./store/asyncActions/manyCustomers";
 
 function App() {
   const dispatch = useDispatch();
@@ -47,6 +49,7 @@ function App() {
         <button onClick={() => getClient(Number(prompt("cash")))}>
           Delete client
         </button>
+        <button onClick={() => dispatch(manyCustomers())}>Many clients</button>
       </div>
       {customer.length > 0 ? (
         <div>
